@@ -2,6 +2,9 @@ import { currentLocales } from './app/config/i18n';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    deepseekUrl: '',
+  },
   future: {
     compatibilityVersion: 4,
   },

@@ -1,12 +1,15 @@
+import { DEEPSEEK_URL } from '~/config/constant';
 import type { UiBrandAvatarName } from '~~/types/chat';
 
 export default defineEventHandler(async (event) => {
-  if (event.method === 'OPTIONS') {
-    setResponseStatus(event, 200);
-    return {
-      body: 'OK',
-    };
-  }
+  // if (event.method === 'OPTIONS') {
+  //   setResponseStatus(event, 200);
+  //   return {
+  //     body: 'OK',
+  //   };
+  // }
+
+  const config = useRuntimeConfig(event);
 
   const body = await readBody(event);
 
@@ -19,7 +22,7 @@ export default defineEventHandler(async (event) => {
   let url = '';
 
   if (brand == 'deepseek') {
-    url = 'https://api.deepseek.com/v1';
+    url = config.deepseekUrl || DEEPSEEK_URL;
   }
 
   const fetchOptions: RequestInit = {
