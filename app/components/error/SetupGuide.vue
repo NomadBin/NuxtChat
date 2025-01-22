@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import type { UiBrandAvatarName } from '../ui/BrandAvatar.vue';
+import type { UiBrandAvatarName } from '~~/types/chat';
 
 interface Props {
   type: UiBrandAvatarName;

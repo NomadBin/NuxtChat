@@ -1,4 +1,5 @@
-import type { UiBrandAvatarName } from '~/components/ui/BrandAvatar.vue';
+import type { UiBrandAvatarName } from './chat';
+
 export interface MditConfigGuideProps {
   type: UiBrandAvatarName;
   modelId?: string;

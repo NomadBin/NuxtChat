@@ -1,5 +1,3 @@
-import type { UiBrandAvatarName } from '~/components/ui/BrandAvatar.vue';
-
 import { kimiModelConfig } from './models/kimi';
 import { deepseekModelConfig } from './models/deepseek';
 import { ollamaModelConfig } from './models/ollama';
@@ -10,6 +8,7 @@ import { qwenModelConfig } from './models/qwen';
 import { hunyuanModelConfig } from './models/hunyuan';
 import { zerooneModelConfig } from './models/zeroone';
 import { openaiModelConfig } from './models/openai';
+import type { UiBrandAvatarName } from '~~/types/chat';
 
 export interface ModelInfo {
   id: string;

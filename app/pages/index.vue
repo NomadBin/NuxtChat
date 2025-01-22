@@ -41,9 +41,8 @@
 </template>
 
 <script setup lang="ts">
-import type { UiBrandAvatarName } from '~/components/ui/BrandAvatar.vue';
 import { allLlmModels, type ModelInfo } from '~/config/llm-models';
-import type { SendChatParams } from '~~/types/chat';
+import type { SendChatParams, UiBrandAvatarName } from '~~/types/chat';
 
 definePageMeta({
   middleware: ['auth'],

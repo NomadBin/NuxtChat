@@ -1,4 +1,3 @@
-import type { UiBrandAvatarName } from '~/components/ui/BrandAvatar.vue';
 import type { ModelInfo } from '~/config/llm-models';
 
 export type ChatMessage = RequestMessage & {
@@ -106,3 +105,5 @@ export enum ModleBrands {
   doubao = 'doubao',
   // claude = 'claude',
 }
+
+export type UiBrandAvatarName = keyof typeof ModleBrands;

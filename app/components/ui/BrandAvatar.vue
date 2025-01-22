@@ -5,9 +5,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import type { ModleBrands } from '~~/types/chat';
-
-export type UiBrandAvatarName = keyof typeof ModleBrands;
+import type { ModleBrands, UiBrandAvatarName } from '~~/types/chat';
 
 type AvatarSize = 'small' | 'medium' | 'large' | 'large-3';
 

@@ -52,8 +52,11 @@ export function fetchChat(options: FetchChatOptions) {
     }
 
     let allMessage = '';
-    // options.url ?? '/api/chat'
-    fetchEventSource(host + '/chat/completions', {
+    /**
+     * host + '/chat/completions'
+     * /api/chat/completions
+     */
+    fetchEventSource('/api/chat/completions', {
       openWhenHidden: true, // 修复无限的重复请求, from: https://github.com/Azure/fetch-event-source/issues/79
       method: 'POST',
       headers: {
@@ -61,6 +64,7 @@ export function fetchChat(options: FetchChatOptions) {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
+        brand: brand,
         stream: true,
         messages: options.messages,
         model: options.modelId,

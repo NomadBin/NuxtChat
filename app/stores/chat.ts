@@ -5,10 +5,11 @@ import {
   type CreateSessionParams,
   type I18nT,
   type RequestMessage,
+  type UiBrandAvatarName,
 } from '~~/types/chat';
 import { createEmptySession } from '~/utils/chat';
 import { allLlmModels, getModelBrand, modelConfigs } from '~/config/llm-models';
-import type { UiBrandAvatarName } from '~/components/ui/BrandAvatar.vue';
+
 import configChat from '~/config/config-chat';
 import { pa } from 'element-plus/es/locale/index.mjs';
 
