@@ -1,0 +1,120 @@
+@use 'sass:meta';
+
+// 来自: https://stackoverflow.com/questions/59257368/how-to-dynamically-change-the-theme-using-highlight-js
+body {
+  @include meta.load-css('highlight.js/styles/atom-one-light');
+}
+body[theme-mode='dark'] {
+  @include meta.load-css('highlight.js/styles/atom-one-dark');
+
+  .markdown-code-wrapper {
+    background-color: #45454e;
+
+    .markdown-code-copy {
+      color: #abb2bf;
+    }
+
+    .markdown-code-lang {
+      color: #abb2bf;
+    }
+  }
+}
+
+.markdown-code-wrapper {
+  position: relative;
+  white-space: initial;
+  background-color: rgb(246 246 247 / 1);
+  line-height: 24px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.markdown-code-wrapper .markdown-code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom-width: 1px;
+  border-bottom-color: #3c3c431a;
+  border-bottom-style: solid;
+}
+
+.markdown-code-wrapper .markdown-code-copy {
+  border-radius: 4px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-style: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: rgb(128 128 128 / 1);
+  z-index: 1;
+  opacity: 1;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
+  font-size: $text-sm;
+}
+
+.markdown-code-wrapper .markdown-code-copy .markdown-copy-icon {
+  pointer-events: none;
+  margin-right: 4px;
+  font-size: 16px;
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 24 24' width='1em' height='1em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 9V6.2c0-1.12 0-1.68.218-2.108c.192-.377.497-.682.874-.874C10.52 3 11.08 3 12.2 3h5.6c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874C21 4.52 21 5.08 21 6.2v5.6c0 1.12 0 1.68-.218 2.108a2 2 0 0 1-.874.874C19.48 15 18.92 15 17.803 15H15M9 9H6.2c-1.12 0-1.68 0-2.108.218a2 2 0 0 0-.874.874C3 10.52 3 11.08 3 12.2v5.6c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874c.427.218.987.218 2.105.218h5.607c1.117 0 1.676 0 2.104-.218a2 2 0 0 0 .874-.874c.218-.428.218-.987.218-2.105V15M9 9h2.8c1.12 0 1.68 0 2.108.218a2 2 0 0 1 .874.874c.218.427.218.987.218 2.105V15'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background-color: currentColor;
+  color: inherit;
+  width: 1em;
+  height: 1em;
+}
+
+.markdown-code-wrapper .markdown-code-copy .markdown-copy-text {
+  pointer-events: none;
+}
+
+.markdown-code-wrapper .markdown-code-copy .markdown-copy-text.default {
+  display: initial;
+}
+
+.markdown-code-wrapper .markdown-code-copy .markdown-copy-text.done {
+  display: none;
+}
+
+.markdown-code-wrapper .markdown-code-copy.copied .markdown-copy-icon {
+  --un-icon: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 24 24' width='1em' height='1em' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath fill='currentColor' d='M9 16.17L4.83 12l-1.42 1.41L9 19L21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+  -webkit-mask: var(--un-icon) no-repeat;
+  mask: var(--un-icon) no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background-color: currentColor;
+  color: inherit;
+  width: 1em;
+  height: 1em;
+}
+
+.markdown-code-wrapper .markdown-code-copy.copied .markdown-copy-text.default {
+  display: none;
+}
+
+.markdown-code-wrapper .markdown-code-copy.copied .markdown-copy-text.done {
+  display: initial;
+}
+
+.markdown-code-wrapper .markdown-code-lang {
+  padding-left: 14px;
+  font-size: 14px;
+  color: #3c3c438f;
+  font-weight: 500;
+  z-index: 0;
+  opacity: 1;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
+}

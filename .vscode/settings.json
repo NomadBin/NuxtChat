@@ -1,0 +1,9 @@
+{
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "i18n-ally.localesPaths": [
+        "app/locales"
+    ],
+    "i18n-ally.keystyle": "nested",
+    
+}

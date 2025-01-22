@@ -1,0 +1,90 @@
+{
+  "tips": {
+    "select_model": "请至少选择一个模型",
+    "has_select": "已选中",
+    "go_to_setting": "去设置",
+    "filter_model": "过滤模型",
+    "nont_find_ai_model": "未找到AI模型",
+    "input_question": "请输入问题",
+    "down_scucess": "下载完成",
+    "copy_success": "复制成功",
+    "copy_fail": "复制失败",
+    "loading": "加载中",
+    "add_more": "添加更多"
+  },
+  "markdown": {
+    "copy_code": "复制代码",
+    "has_copied": "已复制"
+  },
+  "chat": {
+    "prompt": {
+      "summarize": "简要总结一下对话内容，用作后续的上下文提示 prompt，控制在 200 字以内",
+      "history": "这是历史聊天总结作为前情提要："
+    },
+    "error": {
+      "down_ollama_title": "下载指定的 Ollama 模型",
+      "down_ollama_desc": "输入你的 Ollama 模型标签，完成即可继续会话",
+      "use_api_key": "使用自定义 [type] API Key",
+      "use_api_key_desc": "输入你的 [type] API Key 即可开始会话",
+      "api_key_place": "输入api key",
+      "api_retry": "确认并重试",
+      "down": "下载",
+      "setup_1_1": "在本地安装并开启 Ollama 应用",
+      "setup_1_2": "请确认你已经开启 Ollama ，如果没有下载 Ollama ，请前往官网[下载]",
+      "setup_2_1": "配置 Ollama 允许跨域访问",
+      "setup_2_2": "因浏览器安全限制，你需要为 Ollama 进行跨域配置后方可正常使用。",
+      "setup_2_3": "请打开「终端」应用程序，并粘贴以下指令，并按回车运行",
+      "setup_2_3_windows": "在 Windows 上，点击「控制面板」，进入编辑系统环境变量。为您的用户账户新建名为 「OLLAMA_ORIGINS」 的环境变量，值为 * ，点击 「OK/应用」 保存",
+      "setup_2_4": "请在执行完成后重启 Ollama 服务",
+      "setup_linux_1_1": "在本地安装并开启 Ollama 应用",
+      "setup_linux_1_2": "通过以下命令安装：",
+      "setup_linux_2_1": "配置 Ollama 允许跨域访问",
+      "setup_linux_2_2": "因浏览器安全限制，你需要为 Ollama 进行跨域配置后方可正常使用。",
+      "setup_linux_2_3": "调用 systemd 编辑 ollama 服务：",
+      "setup_linux_2_4": "在 [Service] 部分下添加 `Environment`，添加 OLLAMA_ORIGINS 环境变量：",
+      "setup_linux_2_5": "重载 systemd 并重启 Ollama"
+    },
+    "dir": "目录",
+    "login": "登录",
+    "exit_login": "退出登录",
+    "history": "历史记录",
+    "collect": "收藏夹",
+    "setting": "设置",
+    "copy": "复制",
+    "retry": "重试"
+  },
+  "common": {
+    "cancel": "取消",
+    "sure": "确认",
+    "empty_result": "暂无相关结果"
+  },
+
+  "setpage": {
+    "title": "设置",
+    "common_setting": "通用设置",
+    "lang_model": "语言模型",
+    "lang": "语言",
+    "theme": "主题",
+    "day_mode": "日间",
+    "dark_mode": "夜间",
+    "tip": {
+      "api_key": "API Key",
+      "api_key_place": "输入API Key",
+      "api_url": "API 地址",
+      "api_models": "模型列表",
+      "api_models_place": "选择模型列表"
+    }
+  },
+  "history_page": {
+    "title": "历史记录",
+    "search_placeholder": "搜索历史记录",
+    "dialog_modify_title": "修改名称",
+    "dialog_placeholder": "输入名称",
+    "group": {
+      "today": "今天",
+      "thisWeek": "本周",
+      "thisMonth": "本月",
+      "olderThan30Days": "超过30天"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'Akrobat';
+  src: url('/fonts/akrobat.ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 
+* 覆盖 element-plus css变量: https://element-plus.org/zh-CN/guide/theming.html#%E9%80%9A%E8%BF%87-css-%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE
+* 设置css变量的方式,原因:  https://github.com/sass/node-sass/issues/2336
+*/
+body {
+  --el-color-primary: #{$color-primary};
+}
+
+* {
+  // 启用字体抗锯齿功能，浏览器会尝试使字体边缘看起来更平滑，从而提升文本的可读性和视觉效果。
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  background-color: rgba(var(--my-ui-page-bg), 1);
+  color: $color-text-0;
+  // font-size: $text-base;
+  // margin: 0;
+  // overflow-wrap: break-word;
+}
+
+#__nuxt {
+  width: 100%;
+  height: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+.w-full {
+  width: 100%;
+}
+.flex {
+  display: flex;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}

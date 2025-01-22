@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "vunguyentuan.vscode-css-variables",
+        "antfu.goto-alias",
+        "lokalise.i18n-ally",
+        "kisstkondoros.vscode-gutter-preview",
+        "mrmlnc.vscode-scss",
+        "jock.svg",
+        "esbenp.prettier-vscode"
+    ]
+}

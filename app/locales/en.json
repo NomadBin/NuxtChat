@@ -1,0 +1,89 @@
+{
+  "tips": {
+    "select_model": "Please select at least one model",
+    "has_select": "Selected",
+    "go_to_setting": "Go to Settings",
+    "filter_model": "Filter Models",
+    "nont_find_ai_model": "No AI models found",
+    "input_question": "Please enter your question",
+    "down_scucess": "Download completed",
+    "copy_success": "Copy successful",
+    "copy_fail": "Copy failed",
+    "loading": "Loading",
+    "add_more": "Add more"
+  },
+  "markdown": {
+    "copy_code": "Copy code",
+    "has_copied": "Copied"
+  },
+  "chat": {
+    "prompt": {
+      "summarize": "Briefly summarize the conversation content to be used as the context prompt, within 200 words",
+      "history": "This is the historical chat summary as a prelude:"
+    },
+    "error": {
+      "down_ollama_title": "Download the specified Ollama model",
+      "down_ollama_desc": "Enter your Ollama model tag to continue the conversation",
+      "use_api_key": "Use custom [type] API Key",
+      "use_api_key_desc": "Enter your [type] API Key to start the conversation",
+      "api_retry": "Confirm and retry",
+      "down": "Download",
+      "setup_1_1": "Install and start the Ollama application locally",
+      "setup_1_2": "Please confirm that you have started Ollama. If you have not downloaded Ollama, please visit the [official website] to download",
+      "setup_2_1": "Configure Ollama to allow cross-origin access",
+      "setup_2_2": "Due to browser security restrictions, you need to configure cross-origin access for Ollama to use it normally.",
+      "setup_2_3": "Open the \"Terminal\" application and paste the following command, then press Enter to run",
+      "setup_2_3_windows": "On Windows, click on \"Control Panel\", enter System Properties. Create a new environment variable named \"OLLAMA_ORIGINS\" for your user account with the value *, click \"OK/Apply\" to save",
+      "setup_2_4": "Please restart the Ollama service after execution",
+      "setup_linux_1_1": "Install and start the Ollama application locally",
+      "setup_linux_1_2": "Install using the following command:",
+      "setup_linux_2_1": "Configure Ollama to allow cross-origin access",
+      "setup_linux_2_2": "Due to browser security restrictions, you need to configure cross-origin access for Ollama to use it normally.",
+      "setup_linux_2_3": "Edit the ollama service using systemd:",
+      "setup_linux_2_4": "Add `Environment` under the [Service] section, add the OLLAMA_ORIGINS environment variable:",
+      "setup_linux_2_5": "Reload systemd and restart Ollama",
+      "api_key_place": "Enter api key"
+    },
+    "dir": "Directory",
+    "login": "Login",
+    "exit_login": "Logout",
+    "history": "History",
+    "collect": "Favorites",
+    "setting": "Settings",
+    "copy": "Copy",
+    "retry": "Retry"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "sure": "Confirm",
+    "empty_result": "No relevant results"
+  },
+  "setpage": {
+    "common_setting": "General Settings",
+    "lang_model": "Language Model",
+    "theme": "Theme",
+    "day_mode": "Day Mode",
+    "dark_mode": "Night Mode",
+    "title": "set up",
+    "lang": "language",
+    "tip": {
+      "api_key": "API Key",
+      "api_key_place": "Enter API Key",
+      "api_url": "API address",
+      "api_models": "Model list",
+      "api_models_place": "Select model list"
+    }
+  },
+  "history_page": {
+    "title": "History",
+    "search_placeholder": "Search history",
+    "dialog_modify_title": "Modify Name",
+    "dialog_placeholder": "Enter name",
+    "group": {
+      "today": "Today",
+      "thisWeek": "This Week",
+      "thisMonth": "This Month",
+      "olderThan30Days": "Over 30 Days"
+    }
+  }
+}
