@@ -56,7 +56,8 @@ export function fetchChat(options: FetchChatOptions) {
      * host + '/chat/completions'
      * /api/chat/completions
      */
-    fetchEventSource('/api/chat/completions', {
+    const reqUrl = configChat.isPorxyChat ? '/api/chat/completions' : host + '/chat/completions';
+    fetchEventSource(reqUrl, {
       openWhenHidden: true, // 修复无限的重复请求, from: https://github.com/Azure/fetch-event-source/issues/79
       method: 'POST',
       headers: {

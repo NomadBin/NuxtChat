@@ -2,8 +2,21 @@ import { currentLocales } from './app/config/i18n';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  /**
+   * 如果.env中没有配置对应的值，则会使用这里设置的默认值
+   */
   runtimeConfig: {
-    deepseekUrl: '',
+    deepseekUrl: 'https://api.deepseek.com',
+    chatglmUrl: 'https://open.bigmodel.cn/api/paas/v4',
+    doubaoUrl: 'https://ark.cn-beijing.volces.com/api/v3',
+    hunyuanUrl: 'https://api.hunyuan.cloud.tencent.com/v1',
+    kimiUrl: 'https://api.moonshot.cn/v1',
+    minimaxUrl: 'https://api.minimax.chat/v1',
+    ollamaUrl: 'http://127.0.0.1:11434',
+    openaiUrl: 'https://api.openai.com/v1',
+    qwenUrl: 'https://dashscope.aliyuncs.com/compatible-mode/v1',
+    stepfunUrl: 'https://api.stepfun.com/v1',
+    zerooneUrl: 'https://api.lingyiwanwu.com/v1',
   },
   future: {
     compatibilityVersion: 4,

@@ -1,5 +1,4 @@
 export default defineEventHandler((event) => {
-  console.log('New request: ' + getRequestURL(event));
   if (event.method === 'OPTIONS') {
     // 设置允许的来源
     setResponseHeader(event, 'Access-Control-Allow-Origin', '*');
@@ -11,6 +10,6 @@ export default defineEventHandler((event) => {
     setResponseHeader(event, 'Access-Control-Max-Age', 86400);
     // 返回 204 No Content 状态码
     setResponseStatus(event, 204);
-    return;
+    return '';
   }
 });
