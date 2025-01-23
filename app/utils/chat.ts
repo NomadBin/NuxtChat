@@ -39,7 +39,9 @@ export function fetchChat(options: FetchChatOptions) {
 
     const host = chatStore.getModelConfig(options.modelId) || (getModelItem(options.modelId)?.baseUrl as string);
     const apiKey = chatStore.getModelConfig(options.modelId, 'apiKey');
-    if (!apiKey) {
+
+    // 如果是服务端代理模式，则不需要校验本地的apikey
+    if (!configChat.isPorxyChat && !apiKey) {
       // throw new Error('not config apikey');
       const errorText = getMdcConfigGuideMdText({
         type: brand,

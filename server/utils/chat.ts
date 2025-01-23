@@ -44,3 +44,44 @@ export function getBaseUrlByBrand(config: RuntimeConfig, brand: UiBrandAvatarNam
 
   return url;
 }
+
+export function getApiKeyByBrand(config: RuntimeConfig, brand: UiBrandAvatarName) {
+  let key = '';
+  switch (brand) {
+    case 'deepseek':
+      key = config.deepseek.key;
+      break;
+    case 'openai':
+      key = config.openai.key;
+      break;
+    case 'minimax':
+      key = config.minimax.key;
+      break;
+    case 'kimi':
+      key = config.kimi.key;
+      break;
+    case 'stepfun':
+      key = config.stepfun.key;
+      break;
+    case 'chatglm':
+      key = config.chatglm.key;
+      break;
+    case 'zeroone':
+      key = config.zeroone.key;
+      break;
+    case 'qwen':
+      key = config.qwen.key;
+      break;
+    case 'hunyuan':
+      key = config.hunyuan.key;
+      break;
+    case 'doubao':
+      key = config.doubao.key;
+      break;
+    default:
+      key = config.deepseek.key;
+      break;
+  }
+
+  return key;
+}
