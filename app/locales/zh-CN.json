@@ -72,7 +72,9 @@
       "api_key_place": "输入API Key",
       "api_url": "API 地址",
       "api_models": "模型列表",
-      "api_models_place": "选择模型列表"
+      "api_models_place": "选择模型列表",
+      "use_proxy": "使用代理",
+      "use_proxy_desc": "将通过服务器请求AI服务器接口"
     }
   },
   "history_page": {

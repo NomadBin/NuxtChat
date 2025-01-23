@@ -16,7 +16,11 @@
       </div>
       <div class="settingList">
         <div class="item" v-for="item in settingBars[activeBarIndex]?.settings">
-          <span class="preText" v-if="item.preText">{{ item.preText }}</span>
+          <div class="leftText">
+            <span class="preText" v-if="item.preText">{{ item.preText }}</span>
+            <span class="desc">{{ item.desc }}</span>
+          </div>
+
           <div class="rightBox">
             <template v-if="item.type == 'themeSelect'">
               <el-select
@@ -37,6 +41,9 @@
               >
                 <el-option v-for="locale of locales" :value="locale.code" :label="locale.name" />
               </el-select>
+            </template>
+            <template v-if="item.type == 'proxySwitch'">
+              <el-switch v-model="settingStore.porxyChat" />
             </template>
             <template v-if="item.type == 'modelConfig'">
               <el-collapse class="collapse">
@@ -86,7 +93,8 @@ import { modelConfigs } from '~/config/llm-models';
 
 interface SettingItem {
   preText?: string;
-  type: 'themeSelect' | 'modelConfig' | 'langSelect';
+  desc?: string;
+  type: 'themeSelect' | 'modelConfig' | 'langSelect' | 'proxySwitch';
   selectOptions?: SelectItem[];
 }
 
@@ -129,6 +137,11 @@ const settingBars = reactive<SettingBar[]>([
       {
         type: 'langSelect',
         preText: t('setpage.lang'),
+      },
+      {
+        type: 'proxySwitch',
+        preText: t('setpage.tip.use_proxy'),
+        desc: t('setpage.tip.use_proxy_desc'),
       },
     ],
   },
@@ -250,11 +263,21 @@ function clickLeftBar(item: SettingBar, index: number) {
         padding: $s-4 0;
         margin: 0 $s-6;
         border-bottom: 1px solid $color-border-gray;
-        .preText {
-          color: $color-text-0;
-          font-size: $text-base;
-          font-weight: bold;
+        .leftText {
+          display: flex;
+          flex-direction: column;
+          .preText {
+            color: $color-text-0;
+            font-size: $text-base;
+            font-weight: bold;
+          }
+          .desc {
+            margin-top: $s-3;
+            color: $color-text-2;
+            font-size: $text-sm;
+          }
         }
+
         .rightBox {
           flex: 1;
           display: flex;

@@ -37,12 +37,7 @@ export function fetchChat(options: FetchChatOptions) {
       }
     };
 
-    const host = chatStore.getModelConfig(options.modelId) || (getModelItem(options.modelId)?.baseUrl as string);
-    const apiKey = chatStore.getModelConfig(options.modelId, 'apiKey');
-
-    // 如果是服务端代理模式，则不需要校验本地的apikey
-    if (!configChat.isPorxyChat && !apiKey) {
-      // throw new Error('not config apikey');
+    const messageNotConfigApiKey = () => {
       const errorText = getMdcConfigGuideMdText({
         type: brand,
         modelId: options.modelId,
@@ -50,6 +45,16 @@ export function fetchChat(options: FetchChatOptions) {
       });
       options.onMessage(errorText);
       finish('not config apikey');
+    };
+
+    const host = chatStore.getModelConfig(options.modelId) || (getModelItem(options.modelId)?.baseUrl as string);
+    const apiKey = chatStore.getModelConfig(options.modelId, 'apiKey');
+
+    const settingStore = useSettingStore();
+    // 如果是服务端代理模式，则不需要请求之前校验本地的apikey
+    if (!settingStore.porxyChat && !apiKey) {
+      // throw new Error('not config apikey');
+      messageNotConfigApiKey();
       return;
     }
 
@@ -58,7 +63,7 @@ export function fetchChat(options: FetchChatOptions) {
      * host + '/chat/completions'
      * /api/chat/completions
      */
-    const reqUrl = configChat.isPorxyChat ? '/api/chat/completions' : host + '/chat/completions';
+    const reqUrl = settingStore.porxyChat ? '/api/chat/completions' : host + '/chat/completions';
     fetchEventSource(reqUrl, {
       openWhenHidden: true, // 修复无限的重复请求, from: https://github.com/Azure/fetch-event-source/issues/79
       method: 'POST',
@@ -74,11 +79,15 @@ export function fetchChat(options: FetchChatOptions) {
       }),
       signal: ctrl.signal,
       async onopen(response) {
-        console.log('onopen');
+        console.log('onopen', response);
         if (response.ok) {
           // everything's good
         } else if (response.status >= 400 && response.status < 500 && response.status !== 429) {
           // client-side errors are usually non-retriable:
+          if (response.statusText == 'not config apikey') {
+            messageNotConfigApiKey();
+          }
+
           throw new Error('FatalError');
         } else {
           throw new Error('RetriableError');

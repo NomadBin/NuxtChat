@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
   }
 
   if (!apiKey) {
-    return new Response('not config apikey', { status: 400 });
+    return new Response('', { status: 401, statusText: 'not config apikey' });
   }
 
   let url = getEnvValueByBrand(config, brand);

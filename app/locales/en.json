@@ -71,7 +71,9 @@
       "api_key_place": "Enter API Key",
       "api_url": "API address",
       "api_models": "Model list",
-      "api_models_place": "Select model list"
+      "api_models_place": "Select model list",
+      "use_proxy": "Use a proxy",
+      "use_proxy_desc": "The AI ​​server interface will be requested through the server"
     }
   },
   "history_page": {
