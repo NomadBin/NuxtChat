@@ -5,40 +5,40 @@ export function getBaseUrlByBrand(config: RuntimeConfig, brand: UiBrandAvatarNam
   let url = '';
   switch (brand) {
     case 'deepseek':
-      url = config.deepseekUrl;
+      url = config.deepseek.url;
       break;
     case 'openai':
-      url = config.openaiUrl;
+      url = config.openai.url;
       break;
     case 'minimax':
-      url = config.minimaxUrl;
+      url = config.minimax.url;
       break;
     case 'kimi':
-      url = config.kimiUrl;
+      url = config.kimi.url;
       break;
     case 'stepfun':
-      url = config.stepfunUrl;
+      url = config.stepfun.url;
       break;
     case 'chatglm':
-      url = config.chatglmUrl;
+      url = config.chatglm.url;
       break;
     case 'zeroone':
-      url = config.zerooneUrl;
+      url = config.zeroone.url;
       break;
     case 'qwen':
-      url = config.qwenUrl;
+      url = config.qwen.url;
       break;
     case 'hunyuan':
-      url = config.hunyuanUrl;
+      url = config.hunyuan.url;
       break;
     case 'ollama':
-      url = config.ollamaUrl;
+      url = config.ollama.url;
       break;
     case 'doubao':
-      url = config.doubaoUrl;
+      url = config.doubao.url;
       break;
     default:
-      url = config.deepseekUrl;
+      url = config.deepseek.url;
       break;
   }
 

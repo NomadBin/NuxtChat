@@ -38,7 +38,7 @@ function parsePaletteObj(obj) {
   return scssText;
 }
 
-const paletteObj = readJsonFile('js-scripts/arco-palette.json');
+const paletteObj = readJsonFile('js-scripts/data/arco-palette.json');
 
 const light_text = parsePaletteObj(paletteObj.light);
 const dark_text = parsePaletteObj(paletteObj.dark);
