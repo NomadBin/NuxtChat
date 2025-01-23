@@ -12,14 +12,31 @@ const cookieStore = useCookieStore();
 
 await callOnce(cookieStore.fetch);
 const router = useRouter();
+const settingStore = useSettingStore();
+
+watch(
+  settingStore,
+  () => {
+    // 切换主题
+    const body = document.body;
+    if (settingStore.theme == 'day') {
+      // 日间模式
+      body.removeAttribute('theme-mode');
+      document.documentElement.classList.remove('dark');
+    } else {
+      // 夜间模式
+      body.setAttribute('theme-mode', 'dark');
+      document.documentElement.classList.add('dark');
+    }
+  },
+  {
+    immediate: true,
+  },
+);
 
 onBeforeMount(async () => {
   console.log('run app onBeforeMount');
   await idb.initDb();
-  // await idb.insertSession();
-  // await idb.updateSession();
-  // await idb.querySession();
-  // idb.deleteDb();
 });
 
 onMounted(() => {

@@ -11,7 +11,6 @@ import { createEmptySession } from '~/utils/chat';
 import { allLlmModels, getModelBrand, modelConfigs } from '~/config/llm-models';
 
 import configChat from '~/config/config-chat';
-import { pa } from 'element-plus/es/locale/index.mjs';
 
 type JumpType = 'create' | ''; // create 通过首页选择模型-进入的模型对话
 

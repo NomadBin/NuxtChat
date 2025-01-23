@@ -18,13 +18,12 @@
         <div class="item" v-for="item in settingBars[activeBarIndex]?.settings">
           <span class="preText" v-if="item.preText">{{ item.preText }}</span>
           <div class="rightBox">
-            <template v-if="item.type == 'select'">
+            <template v-if="item.type == 'themeSelect'">
               <el-select
-                v-model="item.value"
+                v-model="settingStore.theme"
                 :style="{ width: '130px' }"
                 placement="bottom"
                 @change="handleSelectChange($event, item)"
-                placeholder="请选择"
               >
                 <el-option v-for="citem of item.selectOptions" :value="citem.value" :label="citem.label" />
               </el-select>
@@ -87,9 +86,7 @@ import { modelConfigs } from '~/config/llm-models';
 
 interface SettingItem {
   preText?: string;
-  type: 'select' | 'modelConfig' | 'langSelect';
-  key?: string;
-  value?: any;
+  type: 'themeSelect' | 'modelConfig' | 'langSelect';
   selectOptions?: SelectItem[];
 }
 
@@ -116,17 +113,16 @@ const settingBars = reactive<SettingBar[]>([
     settings: [
       {
         preText: t('setpage.theme'),
-        key: 'theme',
-        type: 'select',
-        value: 0,
+
+        type: 'themeSelect',
         selectOptions: [
           {
             label: t('setpage.day_mode'),
-            value: 0,
+            value: 'day',
           },
           {
             label: t('setpage.dark_mode'),
-            value: 1,
+            value: 'dark',
           },
         ],
       },
@@ -143,7 +139,7 @@ const settingBars = reactive<SettingBar[]>([
     settings: [
       {
         preText: '',
-        key: 'modelConfig',
+        // key: 'modelConfig',
         type: 'modelConfig',
       },
     ],
@@ -155,6 +151,7 @@ const activeBarIndex = ref(0);
 const chatStore = useChatStore();
 const route = useRoute();
 const router = useRouter();
+const settingStore = useSettingStore();
 
 onBeforeMount(() => {
   const tabId = route.query.tabId;
@@ -168,20 +165,6 @@ onBeforeMount(() => {
 
 function handleSelectChange(value: any, item: SettingItem) {
   console.log('run handleSelectChange', value, item);
-
-  if (item.key === 'theme') {
-    // 切换主题
-    const body = document.body;
-    if (value == 0) {
-      // 日间模式
-      body.removeAttribute('theme-mode');
-      document.documentElement.classList.remove('dark');
-    } else {
-      // 夜间模式
-      body.setAttribute('theme-mode', 'dark');
-      document.documentElement.classList.add('dark');
-    }
-  }
 }
 
 function switchLocale(code: any) {

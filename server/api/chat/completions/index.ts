@@ -1,4 +1,4 @@
-import { getApiKeyByBrand, getBaseUrlByBrand } from '~~/server/utils/chat';
+import { getEnvValueByBrand } from '~~/server/utils/chat';
 import type { UiBrandAvatarName } from '~~/types/chat';
 
 export default defineEventHandler(async (event) => {
@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
   const brand = body['brand'] as UiBrandAvatarName;
   delete body['brand'];
 
-  let apiKey = getApiKeyByBrand(config, brand);
+  let apiKey = getEnvValueByBrand(config, brand, 'key');
   const Authorization = event.headers.get('Authorization');
 
   if (Authorization) {
@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
     return new Response('not config apikey', { status: 400 });
   }
 
-  let url = getBaseUrlByBrand(config, brand);
+  let url = getEnvValueByBrand(config, brand);
 
   const fetchOptions: RequestInit = {
     headers: {
