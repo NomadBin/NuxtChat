@@ -80,17 +80,17 @@ export function fetchChat(options: FetchChatOptions) {
       signal: ctrl.signal,
       async onopen(response) {
         console.log('onopen', response);
+
         if (response.ok) {
           // everything's good
-        } else if (response.status >= 400 && response.status < 500 && response.status !== 429) {
+        } else {
           // client-side errors are usually non-retriable:
-          if (response.statusText == 'not config apikey') {
+          const text = await response.text();
+          console.log('err response text', text);
+          if (text == 'not config apikey') {
             messageNotConfigApiKey();
           }
-
           throw new Error('FatalError');
-        } else {
-          throw new Error('RetriableError');
         }
       },
       onmessage(msg) {
